@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">AppProyectoFinal</string>
+    <string name="titulo">App del Examen</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="registro">Registrarse</string>
+    <string name="regresar">Regresar</string>
+    <string name="creditos">Desarrollada por Salut Monde ©</string>
+    <string name="name">Nombre</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="profile">Mi Perfil</string>
+    <string name="permisos">Otorgar permisos</string>
 </resources>
