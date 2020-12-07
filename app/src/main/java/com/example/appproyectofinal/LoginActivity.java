@@ -55,8 +55,10 @@ public class LoginActivity extends AppCompatActivity {
         String url = "http://192.168.0.15:8000/api/login";
         JSONObject persona=new JSONObject();
         try {
-            persona.put("email",email.getText().toString());
-            persona.put("password",password.getText().toString());
+            //persona.put("email",email.getText().toString());
+            //persona.put("password",password.getText().toString());
+            persona.put("email","b@gmail.com");
+            persona.put("password","123456");
         } catch (JSONException e) {
             e.printStackTrace();
         }

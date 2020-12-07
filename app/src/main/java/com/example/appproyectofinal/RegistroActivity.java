@@ -68,7 +68,7 @@ public class RegistroActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegistroActivity.this,error.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistroActivity.this,error.networkResponse.toString(),Toast.LENGTH_SHORT).show();
             }
         });
         queue.add(request);
