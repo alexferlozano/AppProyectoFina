@@ -16,7 +16,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void perfil(View view) {
-        Intent intent=new Intent(MenuActivity.this,MenuActivity.class);
+        Intent intent=new Intent(MenuActivity.this, UserActivity.class);
         intent.putExtra("token",token);
         startActivity(intent);
     }
