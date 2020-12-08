@@ -51,7 +51,7 @@ public class RegistroActivity extends AppCompatActivity {
     }
     private void Registrarse()
     {
-        String url = "http://192.168.0.15:8000/api/signin";
+        String url = "http://192.168.0.103:8000/api/signin";
         JSONObject persona=new JSONObject();
         try {
             persona.put("name", name.getText().toString());
@@ -68,7 +68,7 @@ public class RegistroActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegistroActivity.this,error.networkResponse.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistroActivity.this, error.networkResponse.toString(),Toast.LENGTH_SHORT).show();
             }
         });
         queue.add(request);

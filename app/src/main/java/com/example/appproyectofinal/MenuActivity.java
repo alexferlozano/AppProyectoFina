@@ -31,13 +31,13 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitivy_menu);
         token=getIntent().getExtras().getString("token");
-        Button btn = (Button) findViewById(R.id.c);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                xd();
-            }
-        });
+        //Button btn = (Button) findViewById(R.id);
+        //btn.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+            //public void onClick(View v) {
+              //  xd();
+            //}
+        //});
     }
 
     public void perfil(View view) {
@@ -48,7 +48,7 @@ public class MenuActivity extends AppCompatActivity {
 
     private void xd()
     {
-        String url = "http://192.168.0.15:8000/api/sensor/temperatura";
+        String url = "http://192.168.0.103:8000/api/sensor/temperatura";
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

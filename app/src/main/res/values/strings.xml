@@ -10,4 +10,5 @@
     <string name="password">Contraseña</string>
     <string name="profile">Mi Perfil</string>
     <string name="permisos">Otorgar permisos</string>
+    <string name="menu">Menú</string>
 </resources>

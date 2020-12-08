@@ -44,7 +44,16 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="180dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="18sp"
+                        android:textColorHint="@color/white"
+                        android:hint="@string/name"
+                        android:layout_marginBottom="5dp"/>
                     <TextView
                         android:id="@+id/v_name"
                         android:layout_width="250dp"
@@ -53,7 +62,6 @@
                         android:textSize="18sp"
                         android:textColorHint="@color/black"
                         android:backgroundTint="@color/white"
-                        android:layout_gravity="center"
                         android:hint="@string/name"/>
                 </LinearLayout>
                 <LinearLayout
@@ -62,7 +70,16 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/field_name"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:textSize="18sp"
+                        android:textColorHint="@color/white"
+                        android:hint="@string/email"
+                        android:layout_marginBottom="5dp"/>
                     <TextView
                         android:id="@+id/v_correo"
                         android:layout_width="250dp"
@@ -71,7 +88,6 @@
                         android:textSize="18sp"
                         android:textColorHint="@color/black"
                         android:backgroundTint="@color/white"
-                        android:layout_gravity="center"
                         android:hint="@string/email"/>
                 </LinearLayout>
             </RelativeLayout>
