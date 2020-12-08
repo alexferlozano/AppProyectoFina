@@ -9,6 +9,12 @@
     android:layout_height="wrap_content"
     android:text="perfil"
     android:onClick="perfil">
-
 </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/c"
+        android:text="consumir">
+    </Button>
 </RelativeLayout>
