@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:text="fecha"
+            android:layout_weight="1"
+            android:id="@+id/fecha"
+            android:background="@color/bonito"
+            android:fontFamily="sans-serif-black"
+            android:textSize="18sp"
+            android:textColorHint="@color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:text="estado"
+            android:layout_weight="1"
+            android:id="@+id/estado"
+            android:background="@color/bonito"
+            android:fontFamily="sans-serif-black"
+            android:textSize="18sp"
+            android:textColorHint="@color/white"/>
+    </LinearLayout>
+</RelativeLayout>
