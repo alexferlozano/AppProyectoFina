@@ -97,12 +97,13 @@
                     </LinearLayout>
 
                     <Switch
-                        android:id="@+id/statusSwitch"
+                        android:id="@+id/switchLed1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
+                        android:onClick="encenderLed"
                         android:paddingRight="5dp" />
                 </RelativeLayout>
 
@@ -149,12 +150,13 @@
                     </LinearLayout>
 
                     <Switch
-                        android:id="@+id/statusSwitch2"
+                        android:id="@+id/switchLed2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
+                        android:onClick="encenderLed"
                         android:paddingRight="5dp" />
                 </RelativeLayout>
 
