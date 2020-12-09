@@ -42,6 +42,8 @@ public class StatsActivity extends AppCompatActivity {
     public static final String URL_DIS = "http://" + IP + ":" + PORT + "/api/distancia";
     public static final String URL_PRE = "http://" + IP + ":" + PORT + "/api/presencia";
     public static final String URL_LED = "http://" + IP + ":" + PORT + "/api/led";
+    public static final String URL_LED1 = "http://" + IP + ":" + PORT + "/api/led1";
+    public static final String URL_LED2 = "http://" + IP + ":" + PORT + "/api/led2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,12 @@ public class StatsActivity extends AppCompatActivity {
         titulo.setText(sensor);
         switch (sensor)
         {
+            case "Led 1":
+                ObtenerDatos(URL_LED1);
+                break;
+            case "Led 2":
+                ObtenerDatos(URL_LED2);
+                break;
             case "Temperatura":
                 ObtenerDatos(URL_TEMP);
                 break;

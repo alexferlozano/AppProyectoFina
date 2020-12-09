@@ -55,14 +55,15 @@
                     android:text="perfil"></Button>
 
                 <RelativeLayout
-                    android:id="@+id/field_name"
+                    android:id="@+id/Rled1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="65dp"
                     android:background="#818181"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/cerrar">
+                    android:layout_below="@+id/cerrar"
+                    android:onClick="mirarDatos">
 
                     <ImageView
                         android:id="@+id/iconImageView"
@@ -108,14 +109,15 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/field_name2"
+                    android:id="@+id/Rled2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="140dp"
                     android:background="#818181"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/field_name">
+                    android:layout_below="@+id/field_name"
+                    android:onClick="mirarDatos">
 
                     <ImageView
                         android:id="@+id/iconImageView2"
@@ -164,7 +166,7 @@
                     android:id="@+id/Rtempe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/field_name2"
+                    android:layout_below="@+id/Rled2"
                     android:onClick="mirarDatos"
                     android:layout_marginTop="5dp"
                     android:background="#818181">

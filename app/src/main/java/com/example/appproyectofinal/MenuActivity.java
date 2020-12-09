@@ -251,6 +251,12 @@ public class MenuActivity extends AppCompatActivity {
     public void mirarDatos(View view) {
         switch(view.getId())
         {
+            case R.id.Rled1:
+                sensor="Led 1";
+                break;
+            case R.id.Rled2:
+                sensor="Led 2";
+                break;
             case R.id.Rtempe:
                 sensor="Temperatura";
                 break;
