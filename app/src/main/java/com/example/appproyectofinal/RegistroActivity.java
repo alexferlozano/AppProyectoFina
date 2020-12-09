@@ -23,6 +23,8 @@ import org.json.JSONObject;
 public class RegistroActivity extends AppCompatActivity {
     RequestQueue queue;
     TextView name,email,password;
+    public static final String IP = "192.168.0.103";
+    public static final String PORT = "8000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class RegistroActivity extends AppCompatActivity {
     }
     private void Registrarse()
     {
-        String url = "http://192.168.0.15:8000/api/signin";
+        String url = "http://" + IP + ":" + PORT + "/api/signin";
         JSONObject persona=new JSONObject();
         try {
             persona.put("name", name.getText().toString());

@@ -35,14 +35,15 @@ public class MenuActivity extends AppCompatActivity {
     Switch led1,led2;
     Timer timer;
     TimerTask timerTask;
-    private CountDownTimer countDownTimer;
-    public static final String URL_TEMP = "http://192.168.0.15:8000/api/sensor/temperatura";
-    public static final String URL_HUM = "http://192.168.0.15:8000/api/sensor/humedad";
-    public static final String URL_LUZ = "http://192.168.0.15:8000/api/sensor/luz";
-    public static final String URL_DIS = "http://192.168.0.15:8000/api/sensor/distancia";
-    public static final String URL_PRE = "http://192.168.0.15:8000/api/sensor/presencia";
-    public static final String URL_LED1 = "http://192.168.0.15:8000/api/led/1";
-    public static final String URL_LED2 = "http://192.168.0.15:8000/api/led/2";
+    public static final String IP = "192.168.0.103";
+    public static final String PORT = "8000";
+    public static final String URL_TEMP = "http://" + IP + ":" + PORT + "/api/sensor/temperatura";
+    public static final String URL_HUM = "http://" + IP + ":" + PORT + "/api/sensor/humedad";
+    public static final String URL_LUZ = "http://" + IP + ":" + PORT + "/api/sensor/luz";
+    public static final String URL_DIS = "http://" + IP + ":" + PORT + "/api/sensor/distancia";
+    public static final String URL_PRE = "http://" + IP + ":" + PORT + "/api/sensor/presencia";
+    public static final String URL_LED1 = "http://" + IP + ":" + PORT + "/api/led/1";
+    public static final String URL_LED2 = "http://" + IP + ":" + PORT + "/api/led/2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         queue= Volley.newRequestQueue(this);
@@ -76,7 +77,7 @@ public class MenuActivity extends AppCompatActivity {
                 MostrarDatos(URL_PRE,t_presencia);
             }
         };
-        timer.scheduleAtFixedRate(timerTask, 0, 15000);
+        timer.scheduleAtFixedRate(timerTask, 0, 120000);
     }
 
     public void perfil(View view) {
@@ -204,7 +205,7 @@ public class MenuActivity extends AppCompatActivity {
     }
     private void CerrarSesion()
     {
-        String LOGOUT = "http://192.168.0.15:8000/api/logout";
+        String LOGOUT = "http://" + IP + ":" + PORT + "/api/logout";
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.DELETE, LOGOUT, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

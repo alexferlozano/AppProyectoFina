@@ -20,6 +20,7 @@ public class InicioActivity extends AppCompatActivity {
         countDownTimer = new CountDownTimer(4000, 4000) {
             @Override
             public void onTick(long millisUntilFinished) {
+
             }
 
             @Override

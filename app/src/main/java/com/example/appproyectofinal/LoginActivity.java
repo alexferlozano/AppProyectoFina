@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     RequestQueue queue;
     TextView name,email,password;
     String token;
+    public static final String IP = "192.168.0.103";
+    public static final String PORT = "8000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void Login()
     {
-        String url = "http://192.168.0.15:8000/api/login";
+        String url = "http://" + IP + ":" + PORT + "/api/login";
         JSONObject persona=new JSONObject();
         try {
             persona.put("email",email.getText().toString());

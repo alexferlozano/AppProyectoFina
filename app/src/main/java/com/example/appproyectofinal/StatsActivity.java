@@ -34,12 +34,14 @@ public class StatsActivity extends AppCompatActivity {
     String token,sensor;
     RequestQueue queue;
     TextView titulo;
-    public static final String URL_TEMP = "http://192.168.0.15:8000/api/temperatura";
-    public static final String URL_HUM = "http://192.168.0.15:8000/api/humedad";
-    public static final String URL_LUZ = "http://192.168.0.15:8000/api/luz";
-    public static final String URL_DIS = "http://192.168.0.15:8000/api/distancia";
-    public static final String URL_PRE = "http://192.168.0.15:8000/api/presencia";
-    public static final String URL_LED = "http://192.168.0.15:8000/api/led";
+    public static final String IP = "192.168.0.103";
+    public static final String PORT = "8000";
+    public static final String URL_TEMP = "http://" + IP + ":" + PORT + "/api/temperatura";
+    public static final String URL_HUM = "http://" + IP + ":" + PORT + "/api/humedad";
+    public static final String URL_LUZ = "http://" + IP + ":" + PORT + "/api/luz";
+    public static final String URL_DIS = "http://" + IP + ":" + PORT + "/api/distancia";
+    public static final String URL_PRE = "http://" + IP + ":" + PORT + "/api/presencia";
+    public static final String URL_LED = "http://" + IP + ":" + PORT + "/api/led";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
