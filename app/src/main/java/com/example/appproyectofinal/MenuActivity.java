@@ -56,16 +56,16 @@ public class MenuActivity extends AppCompatActivity {
         t_presencia=(TextView) findViewById(R.id.presencia);
         led1=(Switch) findViewById(R.id.switchLed1);
         led2=(Switch) findViewById(R.id.switchLed2);
-        MostrarDatos(URL_TEMP,text_grados);
+        /*MostrarDatos(URL_TEMP,text_grados);
         MostrarDatos(URL_HUM,t_humedad);
         MostrarDatos(URL_LUZ,t_luz);
         MostrarDatos(URL_DIS,t_distancia);
-        MostrarDatos(URL_PRE,t_presencia);
-        //timer = new Timer();
-        //startTimer();
+        MostrarDatos(URL_PRE,t_presencia);*/
+        timer = new Timer();
+        startTimer();
     }
 
-    /*private void startTimer() {
+    private void startTimer() {
         timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -76,8 +76,8 @@ public class MenuActivity extends AppCompatActivity {
                 MostrarDatos(URL_PRE,t_presencia);
             }
         };
-        timer.scheduleAtFixedRate(timerTask, 0, 120000);
-    }*/
+        timer.scheduleAtFixedRate(timerTask, 0, 15000);
+    }
 
     public void perfil(View view) {
         Intent intent=new Intent(MenuActivity.this, UserActivity.class);
@@ -164,7 +164,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    datos.setText(response.getString("Response"));
+                    datos.setText(response.getString("sensor"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

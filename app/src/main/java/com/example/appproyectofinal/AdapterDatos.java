@@ -39,11 +39,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.DatosHolder>
         public DatosHolder(@NonNull View itemView) {
             super(itemView);
             fecha = itemView.findViewById(R.id.fecha);
-<<<<<<< HEAD
-            estado = itemView.findViewById(R.id.valor);
-=======
             valor = itemView.findViewById(R.id.valor);
->>>>>>> 9851644421964647c18bae6873da8121ff1056d0
         }
         public void addData(Datos dato) {
             fecha.setText(dato.getCreated_at());
