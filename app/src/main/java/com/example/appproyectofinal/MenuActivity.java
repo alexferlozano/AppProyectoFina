@@ -1,14 +1,17 @@
 package com.example.appproyectofinal;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -246,6 +249,8 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
         queue.add(request);
+        timer.cancel();
+        timerTask.cancel();
     }
 
     public void mirarDatos(View view) {
@@ -277,6 +282,29 @@ public class MenuActivity extends AppCompatActivity {
         intent.putExtra("sensor",sensor);
         intent.putExtra("token",token);
         startActivity(intent);
+    }
+    //Controla la pulsación del boton atrás
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == event.KEYCODE_BACK){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("¿Desea cerrar la aplicación?").setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }
