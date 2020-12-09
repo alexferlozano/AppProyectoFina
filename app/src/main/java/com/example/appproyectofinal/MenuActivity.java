@@ -24,20 +24,24 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MenuActivity extends AppCompatActivity {
     String token,sensor;
     RequestQueue queue;
     TextView text_grados,t_humedad,t_luz,t_distancia,t_presencia;
     Switch led1,led2;
+    Timer timer;
+    TimerTask timerTask;
     private CountDownTimer countDownTimer;
-    public static final String URL_TEMP = "http://192.168.0.15:8000/api/sensor/temperatura";
-    public static final String URL_HUM = "http://192.168.0.15:8000/api/sensor/humedad";
-    public static final String URL_LUZ = "http://192.168.0.15:8000/api/sensor/luz";
-    public static final String URL_DIS = "http://192.168.0.15:8000/api/sensor/distancia";
-    public static final String URL_PRE = "http://192.168.0.15:8000/api/sensor/presencia";
-    public static final String URL_LED1 = "http://192.168.0.15:8000/api/led/1";
-    public static final String URL_LED2 = "http://192.168.0.15:8000/api/led/2";
+    public static final String URL_TEMP = "http://192.168.0.103:8000/api/sensor/temperatura";
+    public static final String URL_HUM = "http://192.168.0.103:8000/api/sensor/humedad";
+    public static final String URL_LUZ = "http://192.168.0.103:8000/api/sensor/luz";
+    public static final String URL_DIS = "http://192.168.0.103:8000/api/sensor/distancia";
+    public static final String URL_PRE = "http://192.168.0.103:8000/api/sensor/presencia";
+    public static final String URL_LED1 = "http://192.168.0.103:8000/api/led/1";
+    public static final String URL_LED2 = "http://192.168.0.103:8000/api/led/2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         queue= Volley.newRequestQueue(this);
@@ -51,11 +55,22 @@ public class MenuActivity extends AppCompatActivity {
         t_presencia=(TextView) findViewById(R.id.presencia);
         led1=(Switch) findViewById(R.id.switchLed1);
         led2=(Switch) findViewById(R.id.switchLed2);
-        MostrarDatos(URL_TEMP,text_grados);
-        MostrarDatos(URL_HUM,t_humedad);
-        MostrarDatos(URL_LUZ,t_luz);
-        MostrarDatos(URL_DIS,t_distancia);
-        MostrarDatos(URL_PRE,t_presencia);
+        timer = new Timer();
+        startTimer();
+    }
+
+    private void startTimer() {
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                MostrarDatos(URL_TEMP,text_grados);
+                MostrarDatos(URL_HUM,t_humedad);
+                MostrarDatos(URL_LUZ,t_luz);
+                MostrarDatos(URL_DIS,t_distancia);
+                MostrarDatos(URL_PRE,t_presencia);
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask, 0, 120000);
     }
 
     public void perfil(View view) {
@@ -151,7 +166,7 @@ public class MenuActivity extends AppCompatActivity {
     }
     private void CerrarSesion()
     {
-        String LOGOUT = "http://192.168.0.15:8000/api/logout";
+        String LOGOUT = "http://192.168.0.103:8000/api/logout";
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.DELETE, LOGOUT, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -201,4 +216,5 @@ public class MenuActivity extends AppCompatActivity {
         intent.putExtra("token",token);
         startActivity(intent);
     }
+
 }

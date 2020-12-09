@@ -2,11 +2,11 @@ package com.example.appproyectofinal;
 
 public class Datos {
     String fecha;
-    String estado;
+    String valor;
 
-    public Datos(String fecha, String dato) {
+    public Datos(String fecha, String valor) {
         this.fecha = fecha;
-        this.estado = dato;
+        this.valor = valor;
     }
 
     public String getFecha() {
@@ -17,11 +17,11 @@ public class Datos {
         this.fecha = fecha;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getValor() {
+        return valor;
     }
 
-    public void setEstado(String dato) {
-        this.estado = dato;
+    public void setValor(String dato) {
+        this.valor = valor;
     }
 }

@@ -43,22 +43,23 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Login();
+                //Login();
                 email.setText("");
                 password.setText("");
+                aber();
             }
         });
 
     }
     private void Login()
     {
-        String url = "http://192.168.0.15:8000/api/login";
+        String url = "http://192.168.0.103:8000/api/login";
         JSONObject persona=new JSONObject();
         try {
-            persona.put("email",email.getText().toString());
-            persona.put("password",password.getText().toString());
-            //persona.put("email","b@gmail.com");
-            //persona.put("password","123456");
+            //persona.put("email",email.getText().toString());
+            //persona.put("password",password.getText().toString());
+            persona.put("email","abdeelit@gmail.com");
+            persona.put("password","123456");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -83,5 +84,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         queue.add(request);
+    }
+    private void aber(){
+        token="3|4LNxiMyrrPdgUy1ccdlVK5Tg35HoE8qjhVeGlihM";
+        Intent intent=new Intent(LoginActivity.this,MenuActivity.class);
+        intent.putExtra("token",token);
+        startActivity(intent);
     }
 }

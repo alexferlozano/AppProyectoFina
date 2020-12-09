@@ -14,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -26,12 +27,12 @@ import java.util.List;
 
 public class StatsActivity extends AppCompatActivity {
     String token,sensor;
-    public static final String URL_TEMP = "http://192.168.0.15:8000/api/temperatura";
-    public static final String URL_HUM = "http://192.168.0.15:8000/api/humedad";
-    public static final String URL_LUZ = "http://192.168.0.15:8000/api/luz";
-    public static final String URL_DIS = "http://192.168.0.15:8000/api/distancia";
-    public static final String URL_PRE = "http://192.168.0.15:8000/api/presencia";
-    public static final String URL_LED = "http://192.168.0.15:8000/api/led";
+    public static final String URL_TEMP = "http://192.168.0.103:8000/api/temperatura";
+    public static final String URL_HUM = "http://192.168.0.103:8000/api/humedad";
+    public static final String URL_LUZ = "http://192.168.0.103:8000/api/luz";
+    public static final String URL_DIS = "http://192.168.0.103:8000/api/distancia";
+    public static final String URL_PRE = "http://192.168.0.103:8000/api/presencia";
+    public static final String URL_LED = "http://192.168.0.103:8000/api/led";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,9 @@ public class StatsActivity extends AppCompatActivity {
         token=getIntent().getExtras().getString("token");
         sensor=getIntent().getExtras().getString("sensor");
         Toast.makeText(StatsActivity.this,sensor,Toast.LENGTH_SHORT).show();
+    }
+    private void obtenerDatos(){
+
     }
     /*private void ObtenerDatos()
     {
