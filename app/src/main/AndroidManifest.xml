@@ -25,6 +25,7 @@
         <activity android:name=".LoginActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".UserActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".MenuActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".StatsActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>

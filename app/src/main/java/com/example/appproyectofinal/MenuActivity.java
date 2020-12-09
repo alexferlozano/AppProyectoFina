@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity {
-    String token;
+    String token,sensor;
     RequestQueue queue;
     TextView text_grados,t_humedad,t_luz,t_distancia,t_presencia;
     Switch led1,led2;
@@ -48,12 +48,14 @@ public class MenuActivity extends AppCompatActivity {
         t_humedad=(TextView) findViewById(R.id.humedad);
         t_luz=(TextView) findViewById(R.id.luz);
         t_distancia=(TextView) findViewById(R.id.distancia);
+        t_presencia=(TextView) findViewById(R.id.presencia);
         led1=(Switch) findViewById(R.id.switchLed1);
         led2=(Switch) findViewById(R.id.switchLed2);
         MostrarDatos(URL_TEMP,text_grados);
         MostrarDatos(URL_HUM,t_humedad);
         MostrarDatos(URL_LUZ,t_luz);
         MostrarDatos(URL_DIS,t_distancia);
+        MostrarDatos(URL_PRE,t_presencia);
     }
 
     public void perfil(View view) {
@@ -173,5 +175,30 @@ public class MenuActivity extends AppCompatActivity {
             }
         };
         queue.add(request);
+    }
+
+    public void mirarDatos(View view) {
+        switch(view.getId())
+        {
+            case R.id.Rtempe:
+                sensor="temperatura";
+                break;
+            case R.id.Rhume:
+                sensor="humedad";
+                break;
+            case R.id.Rluz:
+                sensor="luz";
+                break;
+            case R.id.Rdist:
+                sensor="distancia";
+                break;
+            case R.id.Rpres:
+                sensor="presencia";
+                break;
+        }
+        Intent intent= new Intent(MenuActivity.this,StatsActivity.class);
+        intent.putExtra("sensor",sensor);
+        intent.putExtra("token",token);
+        startActivity(intent);
     }
 }
