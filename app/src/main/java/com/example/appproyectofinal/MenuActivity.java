@@ -196,19 +196,19 @@ public class MenuActivity extends AppCompatActivity {
         switch(view.getId())
         {
             case R.id.Rtempe:
-                sensor="temperatura";
+                sensor="Temperatura";
                 break;
             case R.id.Rhume:
-                sensor="humedad";
+                sensor="Humedad";
                 break;
             case R.id.Rluz:
-                sensor="luz";
+                sensor="Luz";
                 break;
             case R.id.Rdist:
-                sensor="distancia";
+                sensor="Distancia";
                 break;
             case R.id.Rpres:
-                sensor="presencia";
+                sensor="Presencia";
                 break;
         }
         Intent intent= new Intent(MenuActivity.this,StatsActivity.class);

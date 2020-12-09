@@ -4,24 +4,25 @@ public class Datos {
     String value;
     String created_at;
 
-    public Datos(String fecha, String dato) {
-        this.value = dato;
-        this.created_at = fecha;
+
+    public Datos(String value, String created_at) {
+        this.value = value;
+        this.created_at = created_at;
     }
 
-    public String getFecha() {
+    public String getValue() {
         return value;
     }
 
-    public void setFecha(String fecha) {
-        this.value = fecha;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public String getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(String dato) {
-        this.created_at = dato;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 }
