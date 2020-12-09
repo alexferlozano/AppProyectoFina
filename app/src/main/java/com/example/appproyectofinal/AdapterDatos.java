@@ -43,7 +43,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.DatosHolder>
         }
         public void addData(Datos dato) {
             fecha.setText(dato.getFecha());
-            estado.setText(dato.getEstado());
+            estado.setText(dato.getCreated_at());
         }
     }
 }

@@ -1,27 +1,27 @@
 package com.example.appproyectofinal;
 
 public class Datos {
-    String fecha;
-    String estado;
+    String value;
+    String created_at;
 
     public Datos(String fecha, String dato) {
-        this.fecha = fecha;
-        this.estado = dato;
+        this.value = dato;
+        this.created_at = fecha;
     }
 
     public String getFecha() {
-        return fecha;
+        return value;
     }
 
     public void setFecha(String fecha) {
-        this.fecha = fecha;
+        this.value = fecha;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setEstado(String dato) {
-        this.estado = dato;
+    public void setCreated_at(String dato) {
+        this.created_at = dato;
     }
 }
