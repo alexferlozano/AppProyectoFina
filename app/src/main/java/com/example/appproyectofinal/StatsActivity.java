@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +33,7 @@ import java.util.Map;
 public class StatsActivity extends AppCompatActivity {
     String token,sensor;
     RequestQueue queue;
+    TextView titulo;
     public static final String URL_TEMP = "http://192.168.0.15:8000/api/temperatura";
     public static final String URL_HUM = "http://192.168.0.15:8000/api/humedad";
     public static final String URL_LUZ = "http://192.168.0.15:8000/api/luz";
@@ -45,24 +47,26 @@ public class StatsActivity extends AppCompatActivity {
         queue= Volley.newRequestQueue(this);
         token=getIntent().getExtras().getString("token");
         sensor=getIntent().getExtras().getString("sensor");
+        titulo = findViewById(R.id.titulo);
+        titulo.setText(sensor);
         switch (sensor)
         {
-            case "temperatura":
+            case "Temperatura":
                 ObtenerDatos(URL_TEMP);
                 break;
-            case "humedad":
+            case "Humedad":
                 ObtenerDatos(URL_HUM);
                 break;
-            case "luz":
+            case "Luz":
                 ObtenerDatos(URL_LUZ);
                 break;
-            case "distancia":
+            case "Distancia":
                 ObtenerDatos(URL_DIS);
                 break;
-            case "presencia":
+            case "Presencia":
                 ObtenerDatos(URL_PRE);
                 break;
-            case "led":
+            case "Led":
                 ObtenerDatos(URL_LED);
                 break;
         }

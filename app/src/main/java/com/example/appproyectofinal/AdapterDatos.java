@@ -35,15 +35,19 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.DatosHolder>
     }
 
     public class DatosHolder extends RecyclerView.ViewHolder {
-        private TextView fecha, estado;
+        private TextView fecha, valor;
         public DatosHolder(@NonNull View itemView) {
             super(itemView);
             fecha = itemView.findViewById(R.id.fecha);
+<<<<<<< HEAD
             estado = itemView.findViewById(R.id.valor);
+=======
+            valor = itemView.findViewById(R.id.valor);
+>>>>>>> 9851644421964647c18bae6873da8121ff1056d0
         }
         public void addData(Datos dato) {
-            fecha.setText(dato.getFecha());
-            estado.setText(dato.getCreated_at());
+            fecha.setText(dato.getCreated_at());
+            valor.setText(dato.getValue());
         }
     }
 }
