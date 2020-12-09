@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -43,23 +44,23 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Login();
+                Login();
                 email.setText("");
                 password.setText("");
-                aber();
+                //aber();
             }
         });
 
     }
     private void Login()
     {
-        String url = "http://192.168.0.103:8000/api/login";
+        String url = "http://192.168.0.15:8000/api/login";
         JSONObject persona=new JSONObject();
         try {
-            //persona.put("email",email.getText().toString());
-            //persona.put("password",password.getText().toString());
-            persona.put("email","abdeelit@gmail.com");
-            persona.put("password","123456");
+            persona.put("email",email.getText().toString());
+            persona.put("password",password.getText().toString());
+            //persona.put("email","abdeelit@gmail.com");
+            //persona.put("password","123456");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -81,6 +82,22 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(LoginActivity.this,error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        request.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
             }
         });
         queue.add(request);

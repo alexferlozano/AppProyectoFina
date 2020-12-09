@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -51,7 +52,7 @@ public class RegistroActivity extends AppCompatActivity {
     }
     private void Registrarse()
     {
-        String url = "http://192.168.0.103:8000/api/signin";
+        String url = "http://192.168.0.15:8000/api/signin";
         JSONObject persona=new JSONObject();
         try {
             persona.put("name", name.getText().toString());
@@ -68,7 +69,23 @@ public class RegistroActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegistroActivity.this, error.networkResponse.toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistroActivity.this, error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        request.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
             }
         });
         queue.add(request);

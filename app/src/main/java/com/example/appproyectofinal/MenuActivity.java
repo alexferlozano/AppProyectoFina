@@ -15,6 +15,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -35,13 +36,13 @@ public class MenuActivity extends AppCompatActivity {
     Timer timer;
     TimerTask timerTask;
     private CountDownTimer countDownTimer;
-    public static final String URL_TEMP = "http://192.168.0.103:8000/api/sensor/temperatura";
-    public static final String URL_HUM = "http://192.168.0.103:8000/api/sensor/humedad";
-    public static final String URL_LUZ = "http://192.168.0.103:8000/api/sensor/luz";
-    public static final String URL_DIS = "http://192.168.0.103:8000/api/sensor/distancia";
-    public static final String URL_PRE = "http://192.168.0.103:8000/api/sensor/presencia";
-    public static final String URL_LED1 = "http://192.168.0.103:8000/api/led/1";
-    public static final String URL_LED2 = "http://192.168.0.103:8000/api/led/2";
+    public static final String URL_TEMP = "http://192.168.0.15:8000/api/sensor/temperatura";
+    public static final String URL_HUM = "http://192.168.0.15:8000/api/sensor/humedad";
+    public static final String URL_LUZ = "http://192.168.0.15:8000/api/sensor/luz";
+    public static final String URL_DIS = "http://192.168.0.15:8000/api/sensor/distancia";
+    public static final String URL_PRE = "http://192.168.0.15:8000/api/sensor/presencia";
+    public static final String URL_LED1 = "http://192.168.0.15:8000/api/led/1";
+    public static final String URL_LED2 = "http://192.168.0.15:8000/api/led/2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         queue= Volley.newRequestQueue(this);
@@ -55,11 +56,16 @@ public class MenuActivity extends AppCompatActivity {
         t_presencia=(TextView) findViewById(R.id.presencia);
         led1=(Switch) findViewById(R.id.switchLed1);
         led2=(Switch) findViewById(R.id.switchLed2);
-        timer = new Timer();
-        startTimer();
+        MostrarDatos(URL_TEMP,text_grados);
+        MostrarDatos(URL_HUM,t_humedad);
+        MostrarDatos(URL_LUZ,t_luz);
+        MostrarDatos(URL_DIS,t_distancia);
+        MostrarDatos(URL_PRE,t_presencia);
+        //timer = new Timer();
+        //startTimer();
     }
 
-    private void startTimer() {
+    /*private void startTimer() {
         timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -71,7 +77,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         };
         timer.scheduleAtFixedRate(timerTask, 0, 120000);
-    }
+    }*/
 
     public void perfil(View view) {
         Intent intent=new Intent(MenuActivity.this, UserActivity.class);
@@ -134,6 +140,22 @@ public class MenuActivity extends AppCompatActivity {
                 return headers;
             }
         };
+        request.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
         queue.add(request);
     }
     private void MostrarDatos(String url, TextView datos)
@@ -162,11 +184,27 @@ public class MenuActivity extends AppCompatActivity {
                 return headers;
             }
         };
+        request.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
         queue.add(request);
     }
     private void CerrarSesion()
     {
-        String LOGOUT = "http://192.168.0.103:8000/api/logout";
+        String LOGOUT = "http://192.168.0.15:8000/api/logout";
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.DELETE, LOGOUT, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -189,6 +227,23 @@ public class MenuActivity extends AppCompatActivity {
                 return headers;
             }
         };
+
+        request.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
         queue.add(request);
     }
 
