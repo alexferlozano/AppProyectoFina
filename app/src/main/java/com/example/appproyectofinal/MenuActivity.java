@@ -55,7 +55,7 @@ public class MenuActivity extends AppCompatActivity {
         MostrarDatos(URL_HUM,t_humedad);
         MostrarDatos(URL_LUZ,t_luz);
         MostrarDatos(URL_DIS,t_distancia);
-        MostrarDatos(URL_PRE,t_presencia);
+        MostrarPresencia(URL_PRE,t_presencia);
     }
 
     public void perfil(View view) {
@@ -128,6 +128,42 @@ public class MenuActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     datos.setText(response.getString("Response"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MenuActivity.this,error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            public Map getHeaders() throws AuthFailureError {
+                HashMap headers = new HashMap();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Bearer " + token);
+                return headers;
+            }
+        };
+        queue.add(request);
+    }
+    private void MostrarPresencia(String url, TextView datos)
+    {
+        JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    String mov=response.getString("Response");
+                    if(mov=="1")
+                    {
+                        datos.setText("Hay presencia");
+                    }
+                    else
+                    {
+                        datos.setText("No hay presencia");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
