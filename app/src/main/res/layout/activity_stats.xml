@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/fondo">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,6 +53,7 @@
                         android:id="@+id/fecha"
                         android:background="@color/azul_casifuerte"
                         android:fontFamily="sans-serif-black"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textColorHint="@color/white"/>
                     <TextView
@@ -64,6 +66,7 @@
                         android:id="@+id/valor"
                         android:background="@color/azul_casifuerte"
                         android:fontFamily="sans-serif-black"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textColorHint="@color/white"/>
                 </LinearLayout>

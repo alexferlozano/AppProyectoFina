@@ -31,7 +31,6 @@ public class InicioActivity extends AppCompatActivity {
                 else {
                     startActivity(menu);
                 }
-                //setContentView(R.layout.activity_main);
             }
         };
         countDownTimer.start();

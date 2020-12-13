@@ -3,10 +3,8 @@ package com.example.appproyectofinal;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +29,9 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.appproyectofinal.MainActivity.IP;
+import static com.example.appproyectofinal.MainActivity.PORT;
+
 public class MenuActivity extends AppCompatActivity {
     String token,sensor;
     RequestQueue queue;
@@ -38,8 +39,6 @@ public class MenuActivity extends AppCompatActivity {
     Switch led1,led2;
     Timer timer;
     TimerTask timerTask;
-    public static final String IP = "192.168.0.103";
-    public static final String PORT = "8000";
     public static final String URL_TEMP = "http://" + IP + ":" + PORT + "/api/sensor/temperatura";
     public static final String URL_HUM = "http://" + IP + ":" + PORT + "/api/sensor/humedad";
     public static final String URL_LUZ = "http://" + IP + ":" + PORT + "/api/sensor/luz";
@@ -60,11 +59,6 @@ public class MenuActivity extends AppCompatActivity {
         t_presencia=(TextView) findViewById(R.id.presencia);
         led1=(Switch) findViewById(R.id.switchLed1);
         led2=(Switch) findViewById(R.id.switchLed2);
-        /*MostrarDatos(URL_TEMP,text_grados);
-        MostrarDatos(URL_HUM,t_humedad);
-        MostrarDatos(URL_LUZ,t_luz);
-        MostrarDatos(URL_DIS,t_distancia);
-        MostrarDatos(URL_PRE,t_presencia);*/
         timer = new Timer();
         startTimer();
     }
@@ -80,7 +74,7 @@ public class MenuActivity extends AppCompatActivity {
                 MostrarDatos(URL_PRE,t_presencia);
             }
         };
-        timer.scheduleAtFixedRate(timerTask, 0, 120000);
+        timer.scheduleAtFixedRate(timerTask, 0, 15000);
     }
 
     public void perfil(View view) {
@@ -127,8 +121,6 @@ public class MenuActivity extends AppCompatActivity {
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.POST, url, LED, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(MenuActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -212,7 +204,7 @@ public class MenuActivity extends AppCompatActivity {
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.DELETE, LOGOUT, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(MenuActivity.this,"Has cerrado Sesión",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this,"Has cerrado sesión",Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(MenuActivity.this,LoginActivity.class);
                 intent.putExtra("token","");
                 startActivity(intent);

@@ -20,12 +20,14 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.appproyectofinal.MainActivity.IP;
+import static com.example.appproyectofinal.MainActivity.PORT;
+
 public class LoginActivity extends AppCompatActivity {
     RequestQueue queue;
-    TextView name,email,password;
+    TextView email,password;
     String token;
-    public static final String IP = "192.168.0.103";
-    public static final String PORT = "8000";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +51,8 @@ public class LoginActivity extends AppCompatActivity {
                 Login();
                 email.setText("");
                 password.setText("");
-                //aber();
             }
         });
-
     }
     private void Login()
     {
@@ -61,20 +61,17 @@ public class LoginActivity extends AppCompatActivity {
         try {
             persona.put("email",email.getText().toString());
             persona.put("password",password.getText().toString());
-            //persona.put("email","abdeelit@gmail.com");
-            //persona.put("password","123456");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.POST, url, persona, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(LoginActivity.this,"Has mandado tus datos correctamente",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,"Has iniciado sesión",Toast.LENGTH_SHORT).show();
                 try {
                     token=response.getString("token");
                     Intent intent=new Intent(LoginActivity.this,MenuActivity.class);
                     intent.putExtra("token",token);
-                    /*intent.putExtra("email",correo);*/
                     startActivity(intent);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -103,11 +100,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         queue.add(request);
-    }
-    private void aber(){
-        token="5|26HBl7AXvTJMF6blxX6RmB0FRCnhb4ucwHDhueLj";
-        Intent intent=new Intent(LoginActivity.this,MenuActivity.class);
-        intent.putExtra("token",token);
-        startActivity(intent);
     }
 }

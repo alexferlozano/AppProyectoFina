@@ -20,11 +20,13 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.appproyectofinal.MainActivity.IP;
+import static com.example.appproyectofinal.MainActivity.PORT;
+
 public class RegistroActivity extends AppCompatActivity {
     RequestQueue queue;
     TextView name,email,password;
-    public static final String IP = "192.168.0.103";
-    public static final String PORT = "8000";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +68,7 @@ public class RegistroActivity extends AppCompatActivity {
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.POST, url, persona, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(RegistroActivity.this,"Has enviado los datos correctamente",Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistroActivity.this,"Te has registrado correctamente",Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override

@@ -12,6 +12,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String IP = "192.168.43.23";
+    public static final String PORT = "8000";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == event.KEYCODE_BACK){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("¿Desea cerrar la aplicación?").setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            builder.setMessage("¿Desea salir de la aplicación?").setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Intent intent = new Intent(Intent.ACTION_MAIN);

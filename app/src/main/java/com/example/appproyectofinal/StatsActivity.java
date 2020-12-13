@@ -1,9 +1,6 @@
 package com.example.appproyectofinal;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,12 +27,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.example.appproyectofinal.MainActivity.IP;
+import static com.example.appproyectofinal.MainActivity.PORT;
+
 public class StatsActivity extends AppCompatActivity {
     String token,sensor;
     RequestQueue queue;
     TextView titulo;
-    public static final String IP = "192.168.0.103";
-    public static final String PORT = "8000";
     public static final String URL_TEMP = "http://" + IP + ":" + PORT + "/api/temperatura";
     public static final String URL_HUM = "http://" + IP + ":" + PORT + "/api/humedad";
     public static final String URL_LUZ = "http://" + IP + ":" + PORT + "/api/luz";

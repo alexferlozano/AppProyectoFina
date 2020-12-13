@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:layout_weight="232"
+    android:background="@drawable/fondo"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,7 +48,7 @@
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
                     <TextView
-                        android:layout_width="250dp"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
                         android:textSize="18sp"
@@ -56,13 +57,12 @@
                         android:layout_marginBottom="5dp"/>
                     <TextView
                         android:id="@+id/v_name"
-                        android:layout_width="250dp"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
                         android:textSize="18sp"
                         android:textColorHint="@color/black"
-                        android:backgroundTint="@color/white"
-                        android:hint="@string/name"/>
+                        android:backgroundTint="@color/white"/>
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/field_email"
@@ -73,7 +73,7 @@
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
                     <TextView
-                        android:layout_width="250dp"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
                         android:textSize="18sp"
@@ -82,13 +82,12 @@
                         android:layout_marginBottom="5dp"/>
                     <TextView
                         android:id="@+id/v_correo"
-                        android:layout_width="250dp"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
                         android:textSize="18sp"
                         android:textColorHint="@color/black"
-                        android:backgroundTint="@color/white"
-                        android:hint="@string/email"/>
+                        android:backgroundTint="@color/white"/>
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>

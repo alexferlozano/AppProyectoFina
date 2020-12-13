@@ -6,28 +6,26 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.Header;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.example.appproyectofinal.MainActivity.IP;
+import static com.example.appproyectofinal.MainActivity.PORT;
 
 public class UserActivity extends AppCompatActivity {
     String token;
     private TextView name, email;
     RequestQueue queue;
-    public static final String IP = "192.168.0.103";
-    public static final String PORT = "8000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
