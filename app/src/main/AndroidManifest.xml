@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.appproyectofinal">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -19,6 +21,8 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+        </activity>
+        <activity android:name=".PermissionsActivity" android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".RegistroActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>

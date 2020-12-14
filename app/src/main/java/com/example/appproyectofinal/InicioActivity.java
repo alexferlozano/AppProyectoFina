@@ -15,7 +15,7 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        main = new Intent(this, MainActivity.class);
+        main = new Intent(this, PermissionsActivity.class);
         menu = new Intent(this, MenuActivity.class);
 
         countDownTimer = new CountDownTimer(4000, 4000) {
